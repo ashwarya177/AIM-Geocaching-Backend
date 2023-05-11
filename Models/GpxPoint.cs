@@ -7,6 +7,12 @@
         public string ?Name { get; set; }
         public string ?Hash { get; set; }
 
-        public GpxPoint(string lat, string lon, string name, string hash)        {            this.Latitude = Convert.ToDouble(lat);            this.Longitude = Convert.ToDouble(lon);            this.Name = name;            this.Hash = hash;        }
+        public GpxPoint(string lat, string lon, string name, string hash)
+        {
+            this.Latitude = Convert.ToDouble(lat);
+            this.Longitude = Convert.ToDouble(lon);
+            this.Name = name;
+            this.Hash = hash;
+        }
     }
 }
