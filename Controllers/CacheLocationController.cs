@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AIM_Geocaching_Backend.Controllers;
 
 [ApiController]
-[Route("/caches")]
+[Route("api/[controller]")]
 public class CacheLocationController : ControllerBase
 {
     private readonly ILogger<CacheLocationController> _logger;
