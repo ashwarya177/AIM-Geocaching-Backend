@@ -13,15 +13,15 @@ namespace AIM_Geocaching_Backend.Services
             this.fileName = fileName;
         }
 
-        public IEnumerable<GpxPoint> LoadGPXWaypoints()
+        public IEnumerable<GpxPoint> LoadGPXWaypoints(Map gmap)
         {
+            
             XElement gpxDoc = GetGpxDoc();
 
             var waypoints = gpxDoc.Descendants("wpt")
-                .Where(x => x.Attribute("lat") != null && x.Attribute("lon") != null)
-                // Can apply logic here for deciding which Caches to show,
-                // while picking waypoints from GPX File.
-                .Take(300)
+                // Take only top 20 waypoints that are within map bounds.
+                .Where(x => gmap.Contains(x.Attribute("lat")?.Value, x.Attribute("lon")?.Value))
+                .Take(20)
                 .Select(wp => new GpxPoint(
                     wp.Attribute("lat")?.Value,
                     wp.Attribute("lon")?.Value,

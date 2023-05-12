@@ -19,16 +19,15 @@ public class CacheLocationController : ControllerBase
     public IActionResult Get()
     {
         var queryParams = HttpContext.Request.Query;
-        queryParams.TryGetValue("lat", out var latitude);
-        queryParams.TryGetValue("lon", out var longitude);
-
-        // Currently the code does not make use of user's current location params
-        // latitude, longitude provided in Query String.
-        // However, we can add logic based on the user's current location
-        // to show only nearby caches.
+        queryParams.TryGetValue("latSW", out var latSW);
+        queryParams.TryGetValue("lonSW", out var lonSW);
+        queryParams.TryGetValue("latNE", out var latNE);
+        queryParams.TryGetValue("lonNE", out var lonNE);
         
         ParseGPX parse = new ParseGPX("aim.geocaches.gpx");
-        var cacheLocations = parse.LoadGPXWaypoints();
+        Map gmap = new Map(latSW, lonSW, latNE, lonNE);
+
+        var cacheLocations = parse.LoadGPXWaypoints(gmap);
 
         return Ok(cacheLocations);
     }
