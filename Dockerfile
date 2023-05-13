@@ -5,6 +5,12 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+# Install Git
+RUN apt-get update && apt-get install -y git
+
+# Clone the repository
+RUN git clone https://github.com/ashwarya177/AIM-Geocaching-Backend.git .
+
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["AIM-Geocaching-Backend.csproj", "."]
