@@ -33,6 +33,9 @@ Eg.: https://localhost:7159/api/CacheLocation?latSW=47.56563091063401&lonSW=-122
 # Configuration
 /aim.geocaches.gpx in the project directory is the file that contains all cache location waypoints.
 
+# Docker Image
+Get the Docker Image of this app at - https://hub.docker.com/repository/docker/ashwarya308/aimgeocachingbackend/general
+
 
 
 
