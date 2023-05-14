@@ -9,24 +9,24 @@ Visual Studio - Download at https://visualstudio.microsoft.com/downloads/
 
 ## Installation
 1. Clone the repository: git clone https://github.com/ashwarya177/AIM-Geocaching-Backend.git
-2. Navigate to the project directory: cd Aim-Geocaching-Backend
-3. Restore dependencies: dotnet restore
-4. Build the project: dotnet build
+2. Navigate to the project directory: `cd Aim-Geocaching-Backend`
+3. Restore dependencies: `dotnet restore`
+4. Build the project: `dotnet build`
 
 ## Usage 
 Run or start the .NET Core API:
 
-1. Run the project locally: dotnet run
+1. Run the project locally: `dotnet run`
 2. The APIs will be accessible at: https://localhost:7159/swagger/index.html 
 
 ## API Endpoints
-GET /api/CacheLocation:  Retrieve a list of the top 20 Cache Locations based on the Map Bounds (if provided) otherwise return any top 20 cache locations.
+GET `/api/CacheLocation`:  Retrieve a list of the top 20 Cache Locations based on the Map Bounds (if provided) otherwise return any top 20 cache locations.
 
 Request: 
 
-URL: "https://localhost:7159/api/CacheLocation?latSW=VALUE&lonSW=VALUE&latNE=VALUE&lonNE=VALUE"
+URL: "https://localhost:7159/api/CacheLocation?latSW=`VALUE`&lonSW=`VALUE`&latNE=`VALUE`&lonNE=`VALUE`"
   
-  (where latSW corresponds to Latitude Southwest, lonNE corresponds to Longitude Northeast & so on, in the Google Map embedded on the UI.)
+  (where `latSW` corresponds to Latitude Southwest, `lonNE` corresponds to Longitude Northeast & so on, in the Google Map embedded on the UI.)
   
 Eg.: https://localhost:7159/api/CacheLocation?latSW=47.56563091063401&lonSW=-122.31515977695311&latNE=47.65821111569607&lonNE=-121.97183702304686
 
